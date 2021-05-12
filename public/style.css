@@ -22,7 +22,10 @@
 }
 
 .head {
-    background-color: red;
+    background-color: rgb(117, 7, 7);
+}
+.snake {
+    background-color: rgb(245, 69, 69);
 }
 .food {
     background-color: yellow;
