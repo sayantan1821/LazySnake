@@ -22,13 +22,16 @@ function main(ctime) {
     lastPrint= ctime;
     gameEngine();
 }
-function isColide(srr) {
-    // for (let i = 0; i < snakeArr.length; i++) {
-    //     if(snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
-    //         return true;
-    //     }
-    // }
-
+function isColide(snake) {
+    for (let i = 1; i < snakeArr.length; i++) {
+        if(snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+            return true;
+        }
+    }
+    if(snake[0].x >= 18 || snake[0].x <= 0 && snake[0].y >= 18 || snake[0].y <= 0){
+        return true;
+    }
+    return false;
 }
 function gameEngine () {
     if(isColide(snakeArr)) {
@@ -60,7 +63,6 @@ function gameEngine () {
         snakeElement = document.createElement('div');
         snakeElement.style.gridRowStart = e.y;
         snakeElement.style.gridColumnStart = e.x;
-        snakeElement.classList.add('snake');
         if(index === 0) {
             snakeElement.classList.add('head');
         } else {
