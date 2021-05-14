@@ -46,6 +46,16 @@ function gameEngine () {
     }
     if(snakeArr[0].y == food.y && snakeArr[0].x == food.x) {
         foodSound.play();
+        score++;
+        scoreBox.innerHTML = "Score : " + score;
+        speedBox.innerHTML = "Speed : " + speed;
+        if(score > hiscoreval) {
+            hiscoreval = score;
+            localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
+            
+        }
+        hiscoreBox.innerHTML = "High Score : " + hiscoreval;
+        foodSound.play();
         snakeArr.unshift({x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y});
         let a = 2;
         let b = 16;
@@ -79,8 +89,14 @@ function gameEngine () {
     board.appendChild(foodElement);
 }
 
-// let x = 
-// console.log(x);
+let hiscore = localStorage.getItem('hiscore');
+if(hiscore === null) {
+    hiscoreval = 0;
+    localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
+} else {
+    hiscoreval = JSON.parse(hiscore);
+    // hiscoreBox.innerHtml = "High Score : " + hiscore;
+}
 
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
