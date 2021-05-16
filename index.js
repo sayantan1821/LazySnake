@@ -1,12 +1,9 @@
 let inputDir = {x: 0, y: 0};
-const foodSound = new Audio('./music/food.mp3');
-const gameOverSound = new Audio('./music/gameover.mp3');
-const moveSound = new Audio('./music/move.mp3');
-const musicSound = new Audio('./music/music.mp3');
-musicSound.volume = 0.09;
-moveSound.volume = 0.2
-gameOverSound.volume = 0.2;
-foodSound.volume = 0.2;
+const foodSound = new Audio('../music/food.mp3');
+const gameOverSound = new Audio('../music/gameover.mp3');
+const moveSound = new Audio('../music/move.mp3');
+const musicSound = new Audio("../music/music.mp3");
+musicSound.volume = 0.2;
 
 let speed = prompt("Please your snake's speed: ",7);
 let userSpeed = speed;
@@ -64,7 +61,7 @@ function gameEngine () {
         scoreBox.innerHTML = "Score : " + score;
         speedBox.innerHTML = "Speed : " + speed;
         if(score > hiscoreval) {
-            let hiscoreval = score;
+            hiscoreval = score;
             localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
             
         }
@@ -85,7 +82,7 @@ function gameEngine () {
 
     board.innerHTML = "";
     snakeArr.forEach((e, index) => {
-        let snakeElement = document.createElement('div');
+        snakeElement = document.createElement('div');
         snakeElement.style.gridRowStart = e.y;
         snakeElement.style.gridColumnStart = e.x;
         if(index === 0) {
@@ -96,7 +93,7 @@ function gameEngine () {
         
         board.appendChild(snakeElement);
     });
-    let foodElement = document.createElement('div');
+    foodElement = document.createElement('div');
     foodElement.style.gridRowStart = food.y;
     foodElement.style.gridColumnStart = food.x;
     foodElement.classList.add('food');
@@ -109,7 +106,7 @@ if(hiscore === null) {
     localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
 } else {
     hiscoreval = JSON.parse(hiscore);
-    
+    // hiscoreBox.innerHtml = "High Score : " + hiscore;
 }
 
 window.requestAnimationFrame(main);
