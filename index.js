@@ -64,7 +64,7 @@ function gameEngine () {
         scoreBox.innerHTML = "Score : " + score;
         speedBox.innerHTML = "Speed : " + speed;
         if(score > hiscoreval) {
-            hiscoreval = score;
+            let hiscoreval = score;
             localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
             
         }
@@ -85,7 +85,7 @@ function gameEngine () {
 
     board.innerHTML = "";
     snakeArr.forEach((e, index) => {
-        snakeElement = document.createElement('div');
+        let snakeElement = document.createElement('div');
         snakeElement.style.gridRowStart = e.y;
         snakeElement.style.gridColumnStart = e.x;
         if(index === 0) {
@@ -96,7 +96,7 @@ function gameEngine () {
         
         board.appendChild(snakeElement);
     });
-    foodElement = document.createElement('div');
+    let foodElement = document.createElement('div');
     foodElement.style.gridRowStart = food.y;
     foodElement.style.gridColumnStart = food.x;
     foodElement.classList.add('food');
@@ -109,7 +109,7 @@ if(hiscore === null) {
     localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
 } else {
     hiscoreval = JSON.parse(hiscore);
-    // hiscoreBox.innerHtml = "High Score : " + hiscore;
+    
 }
 
 window.requestAnimationFrame(main);
