@@ -1,9 +1,12 @@
 let inputDir = {x: 0, y: 0};
-const foodSound = new Audio('../music/food.mp3');
-const gameOverSound = new Audio('../music/gameover.mp3');
-const moveSound = new Audio('../music/move.mp3');
-const musicSound = new Audio("../music/music.mp3");
-musicSound.volume = 0.2;
+const foodSound = new Audio('/music/food.mp3');
+const gameOverSound = new Audio('/music/gameover.mp3');
+const moveSound = new Audio('/music/move.mp3');
+const musicSound = new Audio("/music/music.mp3");
+musicSound.volume = 0.09;
+moveSound.volume = 0.2
+gameOverSound.volume = 0.2;
+foodSound.sound = 0.2;
 
 let speed = prompt("Please your snake's speed: ",7);
 let userSpeed = speed;
